@@ -1,0 +1,54 @@
+# Dependencies
+passkey-client/node_modules/
+passkey-server/node_modules/
+
+# Build output
+passkey-client/dist/
+passkey-client/build/
+passkey-server/dist/
+passkey-server/build/
+
+# Environment variables
+passkey-client/.env
+passkey-client/.env.local
+passkey-server/.env
+passkey-server/.env.local
+
+# Logs
+passkey-client/logs/
+passkey-client/*.log
+passkey-client/npm-debug.log*
+passkey-client/yarn-debug.log*
+passkey-client/yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Coverage reports
+coverage/
+
+# Package lock files (optional)
+# package-lock.json
+# yarn.lock
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env/
+
+# Java
+target/
+*.class
+
+# Misc
+*.swp
