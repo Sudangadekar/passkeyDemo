@@ -1,7 +1,4 @@
-const {
-    generateAuthenticationOptions,
-    verifyAuthenticationResponse,
-} = require('@simplewebauthn/server');
+const { generateAuthenticationOptions, verifyAuthenticationResponse } = require('@simplewebauthn/server');
 
 const users = require('../store/users');
 const challenges = require('../store/challenges');
@@ -11,11 +8,9 @@ const origin = process.env.ORIGIN;
 
 exports.generateOptions = async (username) => {
     const user = users.get(username);
-
     if (!user) {
         throw new Error('User not found');
     }
-
     const options = await generateAuthenticationOptions({
         rpID,
         userVerification: 'preferred',
@@ -26,7 +21,6 @@ exports.generateOptions = async (username) => {
     });
 
     challenges.set(username, options.challenge);
-
     return options;
 };
 

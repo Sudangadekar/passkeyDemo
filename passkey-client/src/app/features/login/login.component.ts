@@ -23,15 +23,9 @@ export class LoginComponent {
   ) { }
 
   async login() {
-
     try {
-
-      const options: any = await firstValueFrom(
-        this.api.loginOptions(this.username)
-      );
-
-      const credential =
-        await this.passkey.authenticate(options);
+      const options: any = await firstValueFrom(this.api.loginOptions(this.username));
+      const credential = await this.passkey.authenticate(options);
 
       const result: any = await firstValueFrom(
         this.api.loginVerify({
@@ -41,16 +35,11 @@ export class LoginComponent {
       );
 
       if (result.verified) {
-
         alert('Login Successful');
-
         this.router.navigate(['/dashboard']);
       }
-
     } catch (error) {
-
       console.error(error);
-
       alert('Login Failed');
     }
   }

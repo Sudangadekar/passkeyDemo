@@ -17,10 +17,7 @@ exports.generateOptions = async (username) => {
             credentials: []
         };
 
-        users.set(
-            username,
-            user
-        );
+        users.set(username, user);
     }
 
     const options =

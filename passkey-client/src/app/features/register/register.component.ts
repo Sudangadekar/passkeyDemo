@@ -26,12 +26,9 @@ export class RegisterComponent {
 
     try {
 
-      const options: any = await firstValueFrom(
-        this.api.registerOptions(this.username)
-      );
+      const options: any = await firstValueFrom(this.api.registerOptions(this.username));
 
-      const credential =
-        await this.passkey.register(options);
+      const credential = await this.passkey.register(options);
 
       const result: any = await firstValueFrom(
         this.api.registerVerify({
@@ -41,16 +38,11 @@ export class RegisterComponent {
       );
 
       if (result.verified) {
-
         alert('Passkey Registered Successfully');
-
         this.router.navigate(['/login']);
       }
-
     } catch (error) {
-
       console.error(error);
-
       alert('Registration Failed');
     }
   }
